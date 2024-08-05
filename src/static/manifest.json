@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "translator-extension",
+  "description": "translator-extension",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "React Boilerplate",
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "tabs",
+    "bookmarks",
+    "scripting",
+    "storage",
+    "identity",
+    "identity.email",
+    "downloads"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://appstoreconnect.apple.com/*",
+        "https://translate.google.co.in/*",
+        "https://www.google.com/*"
+      ],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "host_permissions": [
+    "https://appstoreconnect.apple.com/*",
+    "https://translate.google.co.in/*"
+  ],
+
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "options_page": "options.html"
+}
