@@ -1,157 +1,157 @@
 let languageCodes = [
   {
-    "lan": "Arabic",
-    "code": "ar"
+    lan: "Arabic",
+    code: "ar",
   },
+  // {
+  //   lan: "Catalan",
+  //   code: "co",
+  // },
+  // {
+  //   lan: "Chinese (Simplified)",
+  //   code: "zh-CN",
+  // },
+  // {
+  //   lan: "Chinese (Traditional)",
+  //   code: "zh-TW",
+  // },
+  // {
+  //   lan: "Croatian",
+  //   code: "hr",
+  // },
+  // {
+  //   lan: "Czech",
+  //   code: "cs",
+  // },
+  // {
+  //   lan: "Danish",
+  //   code: "da",
+  // },
+  // {
+  //   lan: "Dutch",
+  //   code: "nl",
+  // },
   {
-    "lan": "Catalan",
-    "code": "co"
+    lan: "English (Australia)",
+    code: "en",
   },
-  {
-    "lan": "Chinese (Simplified)",
-    "code": "zh-CN"
-  },
-  {
-    "lan": "Chinese (Traditional)",
-    "code": "zh-TW"
-  },
-  {
-    "lan": "Croatian",
-    "code": "hr"
-  },
-  {
-    "lan": "Czech",
-    "code": "cs"
-  },
-  {
-    "lan": "Danish",
-    "code": "da"
-  },
-  {
-    "lan": "Dutch",
-    "code": "nl"
-  },
-  {
-    "lan": "English (Australia)",
-    "code": "en"
-  },
-  {
-    "lan": "English (Canada)",
-    "code": "en"
-  },
-  {
-    "lan": "English (U.K.)",
-    "code": "en"
-  },
-  {
-    "lan": "Finnish",
-    "code": "fi"
-  },
-  {
-    "lan": "French",
-    "code": "fr"
-  },
-  {
-    "lan": "French (Canada)",
-    "code": "fr"
-  },
-  {
-    "lan": "German",
-    "code": "de"
-  },
-  {
-    "lan": "Greek",
-    "code": "el"
-  },
-  {
-    "lan": "Hebrew",
-    "code": "iw"
-  },
-  {
-    "lan": "Hindi",
-    "code": "hi"
-  },
-  {
-    "lan": "Hungarian",
-    "code": "hu"
-  },
-  {
-    "lan": "Indonesian",
-    "code": "id"
-  },
-  {
-    "lan": "Italian",
-    "code": "it"
-  },
-  {
-    "lan": "Japanese",
-    "code": "ja"
-  },
-  {
-    "lan": "Korean",
-    "code": "ko"
-  },
-  {
-    "lan": "Malay",
-    "code": "ms"
-  },
-  {
-    "lan": "Norwegian",
-    "code": "no"
-  },
-  {
-    "lan": "Polish",
-    "code": "pl"
-  },
-  {
-    "lan": "Portuguese (Brazil)",
-    "code": "pt"
-  },
-  {
-    "lan": "Portuguese (Portugal)",
-    "code": "pt-PT"
-  },
-  {
-    "lan": "Romanian",
-    "code": "ro"
-  },
-  {
-    "lan": "Russian",
-    "code": "ru"
-  },
-  {
-    "lan": "Slovak",
-    "code": "sk"
-  },
-  {
-    "lan": "Spanish (Mexico)",
-    "code": "es"
-  },
-  {
-    "lan": "Spanish (Spain)",
-    "code": "es"
-  },
-  {
-    "lan": "Swedish",
-    "code": "sv"
-  },
-  {
-    "lan": "Thai",
-    "code": "th"
-  },
-  {
-    "lan": "Turkish",
-    "code": "tr"
-  },
-  {
-    "lan": "Ukrainian",
-    "code": "uk"
-  },
-  {
-    "lan": "Vietnamese",
-    "code": "vi"
-  }
-]
+  // {
+  //   lan: "English (Canada)",
+  //   code: "en",
+  // },
+  // {
+  //   lan: "English (U.K.)",
+  //   code: "en",
+  // },
+  // {
+  //   lan: "Finnish",
+  //   code: "fi",
+  // },
+  // {
+  //   lan: "French",
+  //   code: "fr",
+  // },
+  // {
+  //   lan: "French (Canada)",
+  //   code: "fr",
+  // },
+  // {
+  //   lan: "German",
+  //   code: "de",
+  // },
+  // {
+  //   lan: "Greek",
+  //   code: "el",
+  // },
+  // {
+  //   lan: "Hebrew",
+  //   code: "iw",
+  // },
+  // {
+  //   lan: "Hindi",
+  //   code: "hi",
+  // },
+  // {
+  //   lan: "Hungarian",
+  //   code: "hu",
+  // },
+  // {
+  //   lan: "Indonesian",
+  //   code: "id",
+  // },
+  // {
+  //   lan: "Italian",
+  //   code: "it",
+  // },
+  // {
+  //   lan: "Japanese",
+  //   code: "ja",
+  // },
+  // {
+  //   lan: "Korean",
+  //   code: "ko",
+  // },
+  // {
+  //   lan: "Malay",
+  //   code: "ms",
+  // },
+  // {
+  //   lan: "Norwegian",
+  //   code: "no",
+  // },
+  // {
+  //   lan: "Polish",
+  //   code: "pl",
+  // },
+  // {
+  //   lan: "Portuguese (Brazil)",
+  //   code: "pt",
+  // },
+  // {
+  //   lan: "Portuguese (Portugal)",
+  //   code: "pt-PT",
+  // },
+  // {
+  //   lan: "Romanian",
+  //   code: "ro",
+  // },
+  // {
+  //   lan: "Russian",
+  //   code: "ru",
+  // },
+  // {
+  //   lan: "Slovak",
+  //   code: "sk",
+  // },
+  // {
+  //   lan: "Spanish (Mexico)",
+  //   code: "es",
+  // },
+  // {
+  //   lan: "Spanish (Spain)",
+  //   code: "es",
+  // },
+  // {
+  //   lan: "Swedish",
+  //   code: "sv",
+  // },
+  // {
+  //   lan: "Thai",
+  //   code: "th",
+  // },
+  // {
+  //   lan: "Turkish",
+  //   code: "tr",
+  // },
+  // {
+  //   lan: "Ukrainian",
+  //   code: "uk",
+  // },
+  // {
+  //   lan: "Vietnamese",
+  //   code: "vi",
+  // },
+];
 
 const saveTemplateAsFile = (filename, dataObjToWrite) => {
   let promise = new Promise((resolve, reject) => {
@@ -187,6 +187,7 @@ chrome.runtime.onMessage.addListener(async (message) => {
       let outputJson = message["outputJson"];
 
       if (Array.isArray(outputJson)) {
+        console.log("output json,",outputJson)
         let selectLanguageButton = document.querySelectorAll(
           "button[color=ctrl]"
         )[1] as HTMLElement;
@@ -205,31 +206,26 @@ chrome.runtime.onMessage.addListener(async (message) => {
             setTimeout(() => resolve(""), 2000)
           );
 
-          
-
           let finalDescription = outputJson.find((x) => x.code == "en").output;
-          let currentCode = languageCodes.find(x=>x.lan==currentItem.innerText);
-            
-          let currentDescription = currentCode ? outputJson.find(
-            (x) => x.code == currentCode.code
-          ):null;
-          if(currentDescription){
-            finalDescription = currentDescription.output
+          let currentCode = languageCodes.find(
+            (x) => x.lan == currentItem.innerText
+          );
+
+          let currentDescription = currentCode
+            ? outputJson.find((x) => x.code == currentCode.code)
+            : null;
+          if (currentDescription) {
+            finalDescription = currentDescription.output;
           }
           let descriptionElement: HTMLElement =
             document.querySelector("[name=description]");
 
-          
-            
           if (descriptionElement) {
-
-        
-            descriptionElement.innerText = finalDescription
+            descriptionElement.innerText = finalDescription;
 
             descriptionElement.dispatchEvent(
               new Event("input", { bubbles: true })
             );
-            
           }
 
           let headingButtons = document.getElementById("heading-buttons");
@@ -255,6 +251,53 @@ chrome.runtime.onMessage.addListener(async (message) => {
   }
 });
 
+const getTranslationWithOutEnglish = async (source, output) => {
+  let promise = new Promise(async (resolve, reject) => {
+    let inputString = String(source);
+    let finalOutput =String(output)
+
+    let allWordsInOutput = finalOutput.split(" ");
+
+    let inputElement = document.querySelector("textarea");
+    console.log("allWordsInOutput length ",allWordsInOutput.length)
+    for (let i = 0; i < allWordsInOutput.length; i++) {
+      let currentWord = allWordsInOutput[i];
+      if (
+        inputString.search(currentWord) != -1 &&
+        finalOutput.search(currentWord) != -1 &&
+        currentWord.trim().length > 0 &&
+        isNaN(Number(currentWord)) && 
+        !["-",",","."].includes(currentWord)
+      ) {
+          
+        console.log("current word is",currentWord);
+        console.log("value of i is",i);
+        inputElement.value = currentWord;
+        inputElement.dispatchEvent(new Event("input", { bubbles: true }));
+        await new Promise((re, _) => setTimeout(() => re(""), 2000));
+        let translateOutputofCurrentWord = "";
+
+        while (translateOutputofCurrentWord == "") {
+          await new Promise((rs, rj) => setTimeout(() => rs(""), 2000));
+          let element = document.querySelector("[jsname='jqKxS']") as HTMLElement;
+     
+          if (element) {
+            translateOutputofCurrentWord = element.innerText;
+          }
+        }
+        let re = new RegExp(currentWord, "g");
+        finalOutput = finalOutput.replace(re,translateOutputofCurrentWord);
+
+        console.log("final output after replace",finalOutput)
+      }
+    }
+
+    resolve(finalOutput);
+  });
+
+  return promise;
+};
+
 window.onload = async (event) => {
   console.log("page is fully loaded", window.location.origin);
   if (window.location.origin.includes("translate")) {
@@ -267,9 +310,17 @@ window.onload = async (event) => {
       let element = document.querySelector("[jsname='jqKxS']") as HTMLElement;
       console.log("finding ", element);
       if (element) {
-        translateOutput = element.innerText;
+        translateOutput =element.innerText;
       }
     }
+
+    if(targetLanguage!="en"){
+      translateOutput =  await getTranslationWithOutEnglish(
+        urlParams.get("text"),
+        translateOutput
+      ) as string
+    }
+  
 
     chrome.runtime.sendMessage(
       {
@@ -286,7 +337,7 @@ window.onload = async (event) => {
   if (window.location.origin.includes("https://www.google.com")) {
     let { outputJson } = await chrome.storage.local.get(["outputJson"]);
 
-    console.log("output json is",outputJson)
+    console.log("output json is", outputJson);
     if (outputJson) {
       saveTemplateAsFile("file.json", outputJson);
       await chrome.storage.local.clear();
