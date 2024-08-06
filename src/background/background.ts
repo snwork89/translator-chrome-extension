@@ -1,11 +1,10 @@
 chrome.runtime.onMessage.addListener(async (msg, sender, sendResponse) => {
   if (msg.type == "FROM_POPUP") {
-    let { description, codeMapping, reachedIndex, outputJson } =
+    let { description, codeMapping, reachedIndex } =
       await chrome.storage.local.get([
         "description",
         "codeMapping",
         "reachedIndex",
-        "outputJson",
       ]);
     console.log("description is ", description);
     if (Array.isArray(codeMapping)) {
@@ -42,20 +41,44 @@ chrome.runtime.onMessage.addListener(async (msg, sender, sendResponse) => {
       ]);
 
     await chrome.storage.local.set({ reachedIndex: reachedIndex + 1 });
+    await chrome.storage.local.set({ descriptionSizeIndex: 0 });
     let currentLanguage = codeMapping.find((x) => x.code == msg.targetLanguage);
     if (outputJson) {
       let currentLanguageOutput = outputJson.find(
         (x) => x.code == msg.targetLanguage
       );
       if (currentLanguageOutput) {
-        currentLanguageOutput.output = msg.translateOutput;
+        currentLanguageOutput.output = msg.output;
+        currentLanguageOutput.sourceText = msg.sourceText;
+        currentLanguageOutput.title = msg.title;
+        currentLanguageOutput.sourceTitle = msg.sourceTitle;
+        currentLanguageOutput.subtitle = msg.subtitle;
+        currentLanguageOutput.sourceSubTitle = msg.sourceSubTitle;
       } else {
-        outputJson.push({ ...currentLanguage, output: msg.translateOutput });
+        outputJson.push({
+          ...currentLanguage,
+          output: msg.output,
+          sourceText: msg.sourceText,
+          sourceTitle: msg.sourceTitle,
+          title: msg.title,
+          subtitle: msg.subtitle,
+          sourceSubTitle: msg.sourceSubTitle,
+        });
       }
       await chrome.storage.local.set({ outputJson: outputJson });
       await chrome.storage.local.set({ reachedIndex: reachedIndex + 1 });
     } else {
-      let newObject = [{ ...currentLanguage, output: msg.translateOutput }];
+      let newObject = [
+        {
+          ...currentLanguage,
+          output: msg.output,
+          sourceText: msg.sourceText,
+          sourceTitle: msg.sourceTitle,
+          title: msg.title,
+          subtitle: msg.subtitle,
+          sourceSubTitle: msg.sourceSubTitle,
+        },
+      ];
       await chrome.storage.local.set({ outputJson: newObject });
     }
 
@@ -71,6 +94,4 @@ chrome.runtime.onMessage.addListener(async (msg, sender, sendResponse) => {
     //   });
     // }
   }
-
-
 });

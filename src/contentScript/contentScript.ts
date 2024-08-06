@@ -3,154 +3,154 @@ let languageCodes = [
     lan: "Arabic",
     code: "ar",
   },
-  // {
-  //   lan: "Catalan",
-  //   code: "co",
-  // },
-  // {
-  //   lan: "Chinese (Simplified)",
-  //   code: "zh-CN",
-  // },
-  // {
-  //   lan: "Chinese (Traditional)",
-  //   code: "zh-TW",
-  // },
-  // {
-  //   lan: "Croatian",
-  //   code: "hr",
-  // },
-  // {
-  //   lan: "Czech",
-  //   code: "cs",
-  // },
-  // {
-  //   lan: "Danish",
-  //   code: "da",
-  // },
-  // {
-  //   lan: "Dutch",
-  //   code: "nl",
-  // },
+  {
+    lan: "Catalan",
+    code: "ca",
+  },
+  {
+    lan: "Chinese (Simplified)",
+    code: "zh-CN",
+  },
+  {
+    lan: "Chinese (Traditional)",
+    code: "zh-TW",
+  },
+  {
+    lan: "Croatian",
+    code: "hr",
+  },
+  {
+    lan: "Czech",
+    code: "cs",
+  },
+  {
+    lan: "Danish",
+    code: "da",
+  },
+  {
+    lan: "Dutch",
+    code: "nl",
+  },
   {
     lan: "English (Australia)",
     code: "en",
   },
-  // {
-  //   lan: "English (Canada)",
-  //   code: "en",
-  // },
-  // {
-  //   lan: "English (U.K.)",
-  //   code: "en",
-  // },
-  // {
-  //   lan: "Finnish",
-  //   code: "fi",
-  // },
-  // {
-  //   lan: "French",
-  //   code: "fr",
-  // },
-  // {
-  //   lan: "French (Canada)",
-  //   code: "fr",
-  // },
-  // {
-  //   lan: "German",
-  //   code: "de",
-  // },
-  // {
-  //   lan: "Greek",
-  //   code: "el",
-  // },
-  // {
-  //   lan: "Hebrew",
-  //   code: "iw",
-  // },
-  // {
-  //   lan: "Hindi",
-  //   code: "hi",
-  // },
-  // {
-  //   lan: "Hungarian",
-  //   code: "hu",
-  // },
-  // {
-  //   lan: "Indonesian",
-  //   code: "id",
-  // },
-  // {
-  //   lan: "Italian",
-  //   code: "it",
-  // },
-  // {
-  //   lan: "Japanese",
-  //   code: "ja",
-  // },
-  // {
-  //   lan: "Korean",
-  //   code: "ko",
-  // },
-  // {
-  //   lan: "Malay",
-  //   code: "ms",
-  // },
-  // {
-  //   lan: "Norwegian",
-  //   code: "no",
-  // },
-  // {
-  //   lan: "Polish",
-  //   code: "pl",
-  // },
-  // {
-  //   lan: "Portuguese (Brazil)",
-  //   code: "pt",
-  // },
-  // {
-  //   lan: "Portuguese (Portugal)",
-  //   code: "pt-PT",
-  // },
-  // {
-  //   lan: "Romanian",
-  //   code: "ro",
-  // },
-  // {
-  //   lan: "Russian",
-  //   code: "ru",
-  // },
-  // {
-  //   lan: "Slovak",
-  //   code: "sk",
-  // },
-  // {
-  //   lan: "Spanish (Mexico)",
-  //   code: "es",
-  // },
-  // {
-  //   lan: "Spanish (Spain)",
-  //   code: "es",
-  // },
-  // {
-  //   lan: "Swedish",
-  //   code: "sv",
-  // },
-  // {
-  //   lan: "Thai",
-  //   code: "th",
-  // },
-  // {
-  //   lan: "Turkish",
-  //   code: "tr",
-  // },
-  // {
-  //   lan: "Ukrainian",
-  //   code: "uk",
-  // },
-  // {
-  //   lan: "Vietnamese",
-  //   code: "vi",
-  // },
+  {
+    lan: "English (Canada)",
+    code: "en",
+  },
+  {
+    lan: "English (U.K.)",
+    code: "en",
+  },
+  {
+    lan: "Finnish",
+    code: "fi",
+  },
+  {
+    lan: "French",
+    code: "fr",
+  },
+  {
+    lan: "French (Canada)",
+    code: "fr",
+  },
+  {
+    lan: "German",
+    code: "de",
+  },
+  {
+    lan: "Greek",
+    code: "el",
+  },
+  {
+    lan: "Hebrew",
+    code: "iw",
+  },
+  {
+    lan: "Hindi",
+    code: "hi",
+  },
+  {
+    lan: "Hungarian",
+    code: "hu",
+  },
+  {
+    lan: "Indonesian",
+    code: "id",
+  },
+  {
+    lan: "Italian",
+    code: "it",
+  },
+  {
+    lan: "Japanese",
+    code: "ja",
+  },
+  {
+    lan: "Korean",
+    code: "ko",
+  },
+  {
+    lan: "Malay",
+    code: "ms",
+  },
+  {
+    lan: "Norwegian",
+    code: "no",
+  },
+  {
+    lan: "Polish",
+    code: "pl",
+  },
+  {
+    lan: "Portuguese (Brazil)",
+    code: "pt",
+  },
+  {
+    lan: "Portuguese (Portugal)",
+    code: "pt-PT",
+  },
+  {
+    lan: "Romanian",
+    code: "ro",
+  },
+  {
+    lan: "Russian",
+    code: "ru",
+  },
+  {
+    lan: "Slovak",
+    code: "sk",
+  },
+  {
+    lan: "Spanish (Mexico)",
+    code: "es",
+  },
+  {
+    lan: "Spanish (Spain)",
+    code: "es",
+  },
+  {
+    lan: "Swedish",
+    code: "sv",
+  },
+  {
+    lan: "Thai",
+    code: "th",
+  },
+  {
+    lan: "Turkish",
+    code: "tr",
+  },
+  {
+    lan: "Ukrainian",
+    code: "uk",
+  },
+  {
+    lan: "Vietnamese",
+    code: "vi",
+  },
 ];
 
 const saveTemplateAsFile = (filename, dataObjToWrite) => {
@@ -185,9 +185,10 @@ chrome.runtime.onMessage.addListener(async (message) => {
   if (window.location.origin.includes("appstoreconnect")) {
     if (message.type == "SEND_TO_APPSTORE") {
       let outputJson = message["outputJson"];
+      console.log("out put json is", outputJson);
 
       if (Array.isArray(outputJson)) {
-        console.log("output json,",outputJson)
+        console.log("output json,", outputJson);
         let selectLanguageButton = document.querySelectorAll(
           "button[color=ctrl]"
         )[1] as HTMLElement;
@@ -197,16 +198,25 @@ chrome.runtime.onMessage.addListener(async (message) => {
           setTimeout(() => resolve(""), 2000)
         );
         let lanList = document.querySelectorAll("li[role=menuitem]");
+
         for (let i = 0; i < lanList.length; i++) {
           let currentItem = lanList
             .item(i)
             .querySelector("button") as HTMLElement;
+          console.log("current item si", currentItem.innerText);
+          console.log(
+            "current item si",
+            ["Catalan", "Croatian"].includes(currentItem.innerText)
+          );
+          if (!["Catalan", "Croatian"].includes(currentItem.innerText)) {
+            continue;
+          }
           currentItem.click();
           await new Promise((resolve, reject) =>
             setTimeout(() => resolve(""), 2000)
           );
 
-          let finalDescription = outputJson.find((x) => x.code == "en").output;
+          // let finalDescription = outputJson.find((x) => x.code == "en").output;
           let currentCode = languageCodes.find(
             (x) => x.lan == currentItem.innerText
           );
@@ -215,22 +225,47 @@ chrome.runtime.onMessage.addListener(async (message) => {
             ? outputJson.find((x) => x.code == currentCode.code)
             : null;
           if (currentDescription) {
-            finalDescription = currentDescription.output;
-          }
-          let descriptionElement: HTMLElement =
-            document.querySelector("[name=description]");
+            let { title, subtitle, output } = currentDescription;
 
-          if (descriptionElement) {
-            descriptionElement.innerText = finalDescription;
-
-            descriptionElement.dispatchEvent(
-              new Event("input", { bubbles: true })
+            let descriptionElement: any =
+              document.querySelector("[name=description]");
+            let titleElement: any = document.getElementById("name");
+            let subtitleElement: any = document.getElementById("subtitle");
+            console.log(
+              "description element ",
+              descriptionElement,
+              currentDescription
             );
+            if (descriptionElement && output) {
+              descriptionElement.textContent = output;
+
+              descriptionElement.dispatchEvent(
+                new Event("input", { bubbles: true })
+              );
+            }
+            if (titleElement && title) {
+              titleElement.value = title;
+
+              titleElement.dispatchEvent(new Event("input", { bubbles: true }));
+            }
+            if (subtitleElement && subtitle) {
+              subtitleElement.value = subtitle;
+
+              subtitleElement.dispatchEvent(
+                new Event("input", { bubbles: true })
+              );
+            }
           }
+          await new Promise((resolve, reject) =>
+            setTimeout(() => resolve(""), 2000)
+          );
 
           let headingButtons = document.getElementById("heading-buttons");
           let saveButton = headingButtons.querySelector("button");
-          saveButton.click();
+          console.log("save button attaera", saveButton.getAttribute("type"));
+          // saveButton.click();
+
+          console.log("save button clicked");
           await new Promise((resolve, reject) =>
             setTimeout(() => resolve(""), 2000)
           );
@@ -254,41 +289,51 @@ chrome.runtime.onMessage.addListener(async (message) => {
 const getTranslationWithOutEnglish = async (source, output) => {
   let promise = new Promise(async (resolve, reject) => {
     let inputString = String(source);
-    let finalOutput =String(output)
+    let finalOutput = String(output);
 
     let allWordsInOutput = finalOutput.split(" ");
 
+    let cachedWords = {};
+
     let inputElement = document.querySelector("textarea");
-    console.log("allWordsInOutput length ",allWordsInOutput.length)
+    console.log("allWordsInOutput length ", allWordsInOutput.length);
     for (let i = 0; i < allWordsInOutput.length; i++) {
       let currentWord = allWordsInOutput[i];
+
       if (
+        currentWord &&
         inputString.search(currentWord) != -1 &&
         finalOutput.search(currentWord) != -1 &&
-        currentWord.trim().length > 0 &&
-        isNaN(Number(currentWord)) && 
-        !["-",",","."].includes(currentWord)
+        currentWord.trim().length > 1 &&
+        isNaN(Number(currentWord)) &&
+        !["-", ",", "."].includes(currentWord)
       ) {
-          
-        console.log("current word is",currentWord);
-        console.log("value of i is",i);
-        inputElement.value = currentWord;
+        console.log("current word is", currentWord);
+        console.log("value of i is", i, "Of", allWordsInOutput.length);
+        if (cachedWords[currentWord]) {
+          let re = new RegExp(currentWord, "g");
+          finalOutput = finalOutput.replace(re, cachedWords[currentWord]);
+          continue;
+        }
+
+        inputElement.value = currentWord.toLowerCase();
         inputElement.dispatchEvent(new Event("input", { bubbles: true }));
         await new Promise((re, _) => setTimeout(() => re(""), 2000));
         let translateOutputofCurrentWord = "";
 
         while (translateOutputofCurrentWord == "") {
           await new Promise((rs, rj) => setTimeout(() => rs(""), 2000));
-          let element = document.querySelector("[jsname='jqKxS']") as HTMLElement;
-     
+          let element = document.querySelector(
+            "[jsname='jqKxS']"
+          ) as HTMLElement;
+
           if (element) {
             translateOutputofCurrentWord = element.innerText;
           }
         }
+        cachedWords[currentWord] = translateOutputofCurrentWord;
         let re = new RegExp(currentWord, "g");
-        finalOutput = finalOutput.replace(re,translateOutputofCurrentWord);
-
-        console.log("final output after replace",finalOutput)
+        finalOutput = finalOutput.replace(re, translateOutputofCurrentWord);
       }
     }
 
@@ -298,33 +343,214 @@ const getTranslationWithOutEnglish = async (source, output) => {
   return promise;
 };
 
+const returnCorrectLengthOutput = (output: string, inputType: string) => {
+  let promise = new Promise(async (resolve, reject) => {
+    let MAX_CHARACTER_COUNT = returnMaxCharacter(inputType);
+
+    let inputElement = document.querySelector("textarea");
+    let currentOutput = output;
+    while (currentOutput.length > MAX_CHARACTER_COUNT) {
+      let input = "";
+      if (inputType == "description") {
+        let { descriptionSizeIndex, allSizeDescription } =
+          await chrome.storage.local.get([
+            "descriptionSizeIndex",
+            "allSizeDescription",
+          ]);
+        descriptionSizeIndex = descriptionSizeIndex + 1;
+        input = allSizeDescription[descriptionSizeIndex];
+        await chrome.storage.local.set({
+          descriptionSizeIndex: descriptionSizeIndex,
+        });
+      }
+      if (inputType == "title") {
+        let { titleSizeIndex, allSizeTitle } = await chrome.storage.local.get([
+          "titleSizeIndex",
+          "allSizeTitle",
+        ]);
+        titleSizeIndex = titleSizeIndex + 1;
+        input = allSizeTitle[titleSizeIndex];
+        await chrome.storage.local.set({
+          titleSizeIndex: titleSizeIndex,
+        });
+      }
+      if (inputType == "subtitle") {
+        let { subtitleSizeIndex, allSizeSubTitle } =
+          await chrome.storage.local.get([
+            "subtitleSizeIndex",
+            "allSizeSubTitle",
+          ]);
+        subtitleSizeIndex = subtitleSizeIndex + 1;
+        input = allSizeSubTitle[subtitleSizeIndex];
+        await chrome.storage.local.set({
+          subtitleSizeIndex: subtitleSizeIndex,
+        });
+      }
+
+      inputElement.value = input;
+      inputElement.dispatchEvent(new Event("input", { bubbles: true }));
+      await new Promise((re, _) => setTimeout(() => re(""), 2000));
+      let translationOfCurrentInput = "";
+      while (translationOfCurrentInput == "") {
+        await new Promise((rs, rj) => setTimeout(() => rs(""), 2000));
+        let element = document.querySelector("[jsname='jqKxS']") as HTMLElement;
+
+        if (element) {
+          translationOfCurrentInput = element.innerText;
+        }
+      }
+      currentOutput = translationOfCurrentInput;
+    }
+
+    resolve(currentOutput);
+  });
+
+  return promise;
+};
+
+const returnMaxCharacter = (inputType) => {
+  if (["title", "subtitle"].includes(inputType)) {
+    return 30;
+  } else if (inputType == "description") {
+    return 4000;
+  } else {
+    return 4000;
+  }
+};
+
 window.onload = async (event) => {
   console.log("page is fully loaded", window.location.origin);
   if (window.location.origin.includes("translate")) {
     const urlParams = new URLSearchParams(window.location.search);
-    const targetLanguage = urlParams.get("tl");
-    let translateOutput = "";
 
-    while (translateOutput == "") {
+    const targetLanguage = urlParams.get("tl");
+    let transLationOutput = {
+      output: "",
+      sourceText: 0,
+      sourceTitle: 0,
+      title: "",
+      subtitle: "",
+      sourceSubTitle: 0,
+    };
+
+    //Description Logic
+
+    let descriptionOutput = "";
+
+    while (descriptionOutput == "") {
       await new Promise((rs, rj) => setTimeout(() => rs(""), 2000));
       let element = document.querySelector("[jsname='jqKxS']") as HTMLElement;
       console.log("finding ", element);
       if (element) {
-        translateOutput =element.innerText;
+        descriptionOutput = element.innerText;
       }
     }
 
-    if(targetLanguage!="en"){
-      translateOutput =  await getTranslationWithOutEnglish(
+    if (targetLanguage != "en") {
+      descriptionOutput = (await getTranslationWithOutEnglish(
         urlParams.get("text"),
-        translateOutput
-      ) as string
+        descriptionOutput
+      )) as string;
     }
-  
+
+    descriptionOutput = (await returnCorrectLengthOutput(
+      descriptionOutput,
+      "description"
+    )) as string;
+
+    let { descriptionSizeIndex } = await chrome.storage.local.get([
+      "descriptionSizeIndex",
+    ]);
+    transLationOutput.sourceText = descriptionSizeIndex;
+    transLationOutput.output = descriptionOutput;
+
+    //Title Logic
+
+    let inputElement = document.querySelector("textarea");
+    let { title } = await chrome.storage.local.get(["title"]);
+    inputElement.value = title;
+    inputElement.dispatchEvent(new Event("input", { bubbles: true }));
+    await new Promise((re, _) => setTimeout(() => re(""), 2000));
+    let titleOutput = "";
+
+    while (titleOutput == "") {
+      await new Promise((rs, rj) => setTimeout(() => rs(""), 2000));
+      let element = document.querySelector("[jsname='jqKxS']") as HTMLElement;
+      console.log("finding ", element);
+      if (element) {
+        titleOutput = element.innerText;
+      }
+    }
+
+    if (targetLanguage != "en") {
+      titleOutput = (await getTranslationWithOutEnglish(
+        urlParams.get("text"),
+        titleOutput
+      )) as string;
+    }
+
+    titleOutput = (await returnCorrectLengthOutput(
+      titleOutput,
+      "title"
+    )) as string;
+
+    let { titleSizeIndex } = await chrome.storage.local.get(["titleSizeIndex"]);
+    transLationOutput.sourceTitle = titleSizeIndex;
+    transLationOutput.title = titleOutput;
+
+    //Subtitle Logic
+
+    let { subtitle } = await chrome.storage.local.get(["subtitle"]);
+    inputElement.value = subtitle;
+    inputElement.dispatchEvent(new Event("input", { bubbles: true }));
+    await new Promise((re, _) => setTimeout(() => re(""), 2000));
+    let subtitleOutput = "";
+
+    while (subtitleOutput == "") {
+      await new Promise((rs, rj) => setTimeout(() => rs(""), 2000));
+      let element = document.querySelector("[jsname='jqKxS']") as HTMLElement;
+      console.log("finding ", element);
+      if (element) {
+        subtitleOutput = element.innerText;
+      }
+    }
+
+    if (targetLanguage != "en") {
+      subtitleOutput = (await getTranslationWithOutEnglish(
+        urlParams.get("text"),
+        subtitleOutput
+      )) as string;
+    }
+
+    subtitleOutput = (await returnCorrectLengthOutput(
+      subtitleOutput,
+      "title"
+    )) as string;
+
+    let { subtitleSizeIndex } = await chrome.storage.local.get([
+      "subtitleSizeIndex",
+    ]);
+    transLationOutput.sourceSubTitle = subtitleSizeIndex;
+    transLationOutput.subtitle = subtitleOutput;
+
+    // if (translateOutput.length > MAX_CHARACTER_COUNT) {
+    //   let { descriptionSizeIndex, allSizeDescription } =
+    //     await chrome.storage.local.get([
+    //       "descriptionSizeIndex",
+    //       "allSizeDescription",
+    //     ]);
+    //   descriptionSizeIndex = descriptionSizeIndex + 1;
+
+    //   await chrome.storage.local.set({
+    //     description: allSizeDescription[descriptionSizeIndex],
+    //     descriptionSizeIndex: descriptionSizeIndex,
+    //   });
+    //   chrome.runtime.sendMessage({ type: "FROM_POPUP" });
+    // }
 
     chrome.runtime.sendMessage(
       {
-        translateOutput,
+        ...transLationOutput,
         targetLanguage,
         type: "SEND_TO_BACKGROUND",
       },
