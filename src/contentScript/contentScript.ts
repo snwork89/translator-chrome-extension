@@ -1,4 +1,47 @@
-let languageCodes = [
+let testingLan = [
+  {
+    "lan": "Danish",
+    "code": "da"
+  },
+  {
+    "lan": "French",
+    "code": "fr"
+  },
+  {
+    "lan": "German",
+    "code": "de"
+  },
+  {
+    "lan": "Portuguese (Portugal)",
+    "code": "pt-PT"
+  },
+  {
+    "lan": "Russian",
+    "code": "ru"
+  },
+  // {
+  //   "lan": "Greek",
+  //   "code": "el"
+  // },
+  // {
+  //   "lan": "Malay",
+  //   "code": "ms"
+  // },
+ 
+  // {
+  //   "lan": "Spanish (Spain)",
+  //   "code": "es"
+  // },
+  // {
+  //   "lan": "Swedish",
+  //   "code": "sv"
+  // },
+  // {
+  //   "lan": "Thai",
+  //   "code": "th"
+  // }
+];
+let productionLan = [
   {
     lan: "Arabic",
     code: "ar",
@@ -153,6 +196,8 @@ let languageCodes = [
   },
 ];
 
+let languageCodes = [...testingLan];
+
 const saveTemplateAsFile = (filename, dataObjToWrite) => {
   let promise = new Promise((resolve, reject) => {
     const blob = new Blob([JSON.stringify(dataObjToWrite)], {
@@ -287,6 +332,8 @@ chrome.runtime.onMessage.addListener(async (message) => {
 });
 
 const getTranslationWithOutEnglish = async (source, output) => {
+  console.log("current source inside geWithoutEnglush", source);
+  console.log("current output inside geWithoutEnglush", output);
   let promise = new Promise(async (resolve, reject) => {
     let inputString = String(source);
     let finalOutput = String(output);
@@ -299,7 +346,7 @@ const getTranslationWithOutEnglish = async (source, output) => {
     console.log("allWordsInOutput length ", allWordsInOutput.length);
     for (let i = 0; i < allWordsInOutput.length; i++) {
       let currentWord = allWordsInOutput[i];
-
+      console.log("current word", currentWord);
       if (
         currentWord &&
         inputString.search(currentWord) != -1 &&
@@ -329,6 +376,32 @@ const getTranslationWithOutEnglish = async (source, output) => {
 
           if (element) {
             translateOutputofCurrentWord = element.innerText;
+
+            if (
+              translateOutputofCurrentWord.trim().toLowerCase() ==
+              currentWord.trim().toLowerCase()
+            ) {
+              let moreOptionList =
+                document.querySelectorAll("[jsname='jqKxS']");
+
+              for (
+                let moreoptionIndex = 0;
+                moreoptionIndex < moreOptionList.length;
+                moreoptionIndex++
+              ) {
+                let currentMoreOptionOutput = (
+                  moreOptionList.item(moreoptionIndex) as HTMLElement
+                ).innerText;
+
+                if (
+                  currentMoreOptionOutput.trim().toLowerCase() !=
+                  currentWord.trim().toLowerCase()
+                ) {
+                  translateOutputofCurrentWord = currentMoreOptionOutput;
+                  break;
+                }
+              }
+            }
           }
         }
         cachedWords[currentWord] = translateOutputofCurrentWord;
@@ -344,6 +417,7 @@ const getTranslationWithOutEnglish = async (source, output) => {
 };
 
 const returnCorrectLengthOutput = (output: string, inputType: string) => {
+  const urlParams = new URLSearchParams(window.location.search);
   let promise = new Promise(async (resolve, reject) => {
     let MAX_CHARACTER_COUNT = returnMaxCharacter(inputType);
 
@@ -387,6 +461,8 @@ const returnCorrectLengthOutput = (output: string, inputType: string) => {
         });
       }
 
+      
+
       inputElement.value = input;
       inputElement.dispatchEvent(new Event("input", { bubbles: true }));
       await new Promise((re, _) => setTimeout(() => re(""), 2000));
@@ -399,7 +475,20 @@ const returnCorrectLengthOutput = (output: string, inputType: string) => {
           translationOfCurrentInput = element.innerText;
         }
       }
+
       currentOutput = translationOfCurrentInput;
+
+      if (urlParams.get("tl") != "en") {
+        currentOutput = (await getTranslationWithOutEnglish(
+          // urlParams.get("text"),
+          input,
+          translationOfCurrentInput
+        )) as string;
+      }
+
+      if(currentOutput.length>MAX_CHARACTER_COUNT){
+        saveTemplateAsFile("overflow.json",{output:currentOutput})
+      }
     }
 
     resolve(currentOutput);
@@ -434,7 +523,7 @@ window.onload = async (event) => {
     };
 
     //Description Logic
-
+    let { description } = await chrome.storage.local.get(["description"]);
     let descriptionOutput = "";
 
     while (descriptionOutput == "") {
@@ -448,7 +537,7 @@ window.onload = async (event) => {
 
     if (targetLanguage != "en") {
       descriptionOutput = (await getTranslationWithOutEnglish(
-        urlParams.get("text"),
+        description,
         descriptionOutput
       )) as string;
     }
@@ -484,7 +573,8 @@ window.onload = async (event) => {
 
     if (targetLanguage != "en") {
       titleOutput = (await getTranslationWithOutEnglish(
-        urlParams.get("text"),
+        // urlParams.get("text"),
+        title,
         titleOutput
       )) as string;
     }
@@ -517,14 +607,15 @@ window.onload = async (event) => {
 
     if (targetLanguage != "en") {
       subtitleOutput = (await getTranslationWithOutEnglish(
-        urlParams.get("text"),
+        // urlParams.get("text"),
+        subtitle,
         subtitleOutput
       )) as string;
     }
 
     subtitleOutput = (await returnCorrectLengthOutput(
       subtitleOutput,
-      "title"
+      "subtitle"
     )) as string;
 
     let { subtitleSizeIndex } = await chrome.storage.local.get([

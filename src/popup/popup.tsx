@@ -7,6 +7,7 @@ const Popup = () => {
   const [smallSizedDescription, setSmallSizedDescription] = useState("");
   const [description, setDescription] = useState("");
   const [mediumSizedDescription, setMediumSizedDescription] = useState("");
+  // const [verySmallSizedDescription,setVerySmallSizedDescription] = useState("");
 
   const [smallSizedtitle, setSmallSizedtitle] = useState("");
   const [title, setTitle] = useState("");
@@ -85,12 +86,43 @@ const Popup = () => {
     reader.readAsText(selectedFile);
   };
 
+  const handleInputFileChange = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    let selectedFile = e.target.files[0];
+    console.log("seasd");
+    var reader = new FileReader();
+
+    reader.onload = async function (event) {
+      var jsonObj = JSON.parse(event.target.result.toString());
+      if (Array.isArray(jsonObj)) {
+        ///fill apple form
+        let [titleArray, subTitleArray, descriptionArray] = jsonObj;
+
+        setTitle(titleArray[0]);
+        setMediumSizedTitle(titleArray[1]);
+        setSmallSizedtitle(titleArray[2]);
+
+        setSubTitle(subTitleArray[0]);
+        setMediumSizedSubTitle(subTitleArray[1]);
+        setSmallSizedSubTitle(subTitleArray[2]);
+
+        setDescription(descriptionArray[0]);
+        setMediumSizedDescription(descriptionArray[1]);
+        setSmallSizedDescription(descriptionArray[2]);
+      }
+    };
+
+    reader.readAsText(selectedFile);
+  };
+
   const returnTextArea = () => {
     if (selectedInputType == "description") {
       return (
         <>
           <TextAreaComponent
             value={title}
+            rows={1}
             type="title"
             setValue={setTitle}
             placeholder="Long Sized Title"
@@ -98,6 +130,7 @@ const Popup = () => {
 
           <TextAreaComponent
             value={mediumSizedTitle}
+            rows={1}
             type="mediumTitle"
             setValue={setMediumSizedTitle}
             placeholder="Medium Sized Title"
@@ -105,12 +138,14 @@ const Popup = () => {
 
           <TextAreaComponent
             value={smallSizedtitle}
+            rows={1}
             type="smallTitle"
             setValue={setSmallSizedtitle}
             placeholder="Small Sized Title"
           />
           <TextAreaComponent
             value={subtitle}
+            rows={1}
             type="subTitle"
             setValue={setSubTitle}
             placeholder="Long Sized Subtitle"
@@ -118,6 +153,7 @@ const Popup = () => {
 
           <TextAreaComponent
             type="mediumSubTitle"
+            rows={1}
             value={mediumSizedSubTitle}
             setValue={setMediumSizedSubTitle}
             placeholder="Medium Sized Subtitle"
@@ -126,6 +162,7 @@ const Popup = () => {
           <TextAreaComponent
             type="smallSubTitle"
             value={smallSizedSubTitle}
+            rows={1}
             setValue={setSmallSizedSubTitle}
             placeholder="Small Sized Subtitle"
           />
@@ -149,36 +186,55 @@ const Popup = () => {
             setValue={setSmallSizedDescription}
             placeholder="Small Sized Desciption"
           />
+          {/* <TextAreaComponent
+            type="verySmallDescription"
+            value={verySmallSizedDescription}
+            setValue={setVerySmallSizedDescription}
+            placeholder="Very Small Sized Desciption"
+          /> */}
         </>
       );
     }
   };
   return (
     <div className="p-4">
-      <select
+      {/* <select
         id="countries"
         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       >
         <option value="description">Description</option>
         <option value="title">Title</option>
         <option value="subtitle">Sub Title</option>
-      </select>
+      </select> */}
+
+      <label
+        className="block mb-2 text-sm font-medium text-gray-900"
+        htmlFor="file_input"
+      >
+        Upload Input File
+      </label>
+      <input
+        className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none"
+        id="file_input"
+        type="file"
+        onChange={handleInputFileChange}
+      />
       {returnTextArea()}
       <button
         onClick={handleTranslate}
-        className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-5 "
+        className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg shadow-blue-500/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-5 "
       >
         Translate
       </button>
 
       <label
-        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        className="block mb-2 text-sm font-medium text-gray-900"
         htmlFor="file_input"
       >
         Upload file
       </label>
       <input
-        className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+        className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
         id="file_input"
         type="file"
         onChange={handleFileChange}

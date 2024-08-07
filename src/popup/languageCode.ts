@@ -1,4 +1,47 @@
-let x = [
+let testingLan = [
+  {
+    "lan": "Danish",
+    "code": "da"
+  },
+  {
+    "lan": "French",
+    "code": "fr"
+  },
+  {
+    "lan": "German",
+    "code": "de"
+  },
+  {
+    "lan": "Portuguese (Portugal)",
+    "code": "pt-PT"
+  },
+  {
+    "lan": "Russian",
+    "code": "ru"
+  },
+  // {
+  //   "lan": "Greek",
+  //   "code": "el"
+  // },
+  // {
+  //   "lan": "Malay",
+  //   "code": "ms"
+  // },
+ 
+  // {
+  //   "lan": "Spanish (Spain)",
+  //   "code": "es"
+  // },
+  // {
+  //   "lan": "Swedish",
+  //   "code": "sv"
+  // },
+  // {
+  //   "lan": "Thai",
+  //   "code": "th"
+  // }
+];
+let productionLan = [
   {
     "lan": "Arabic",
     "code": "ar"
@@ -152,5 +195,9 @@ let x = [
     "code": "vi"
   }
 ]
+
+
+
+let x = [...testingLan]
 
 export default x;
