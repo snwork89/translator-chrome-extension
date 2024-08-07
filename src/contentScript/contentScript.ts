@@ -19,27 +19,27 @@ let testingLan = [
     "lan": "Russian",
     "code": "ru"
   },
-  // {
-  //   "lan": "Greek",
-  //   "code": "el"
-  // },
-  // {
-  //   "lan": "Malay",
-  //   "code": "ms"
-  // },
+  {
+    "lan": "Greek",
+    "code": "el"
+  },
+  {
+    "lan": "Malay",
+    "code": "ms"
+  },
  
-  // {
-  //   "lan": "Spanish (Spain)",
-  //   "code": "es"
-  // },
-  // {
-  //   "lan": "Swedish",
-  //   "code": "sv"
-  // },
-  // {
-  //   "lan": "Thai",
-  //   "code": "th"
-  // }
+  {
+    "lan": "Spanish (Spain)",
+    "code": "es"
+  },
+  {
+    "lan": "Swedish",
+    "code": "sv"
+  },
+  {
+    "lan": "Thai",
+    "code": "th"
+  }
 ];
 let productionLan = [
   {
@@ -196,8 +196,10 @@ let productionLan = [
   },
 ];
 
-let languageCodes = [...testingLan];
+let languageCodes = [...productionLan];
 
+
+let cachedWords = {};
 const saveTemplateAsFile = (filename, dataObjToWrite) => {
   let promise = new Promise((resolve, reject) => {
     const blob = new Blob([JSON.stringify(dataObjToWrite)], {
@@ -335,12 +337,15 @@ const getTranslationWithOutEnglish = async (source, output) => {
   console.log("current source inside geWithoutEnglush", source);
   console.log("current output inside geWithoutEnglush", output);
   let promise = new Promise(async (resolve, reject) => {
+
+    resolve(output);
+    return;
     let inputString = String(source);
     let finalOutput = String(output);
 
     let allWordsInOutput = finalOutput.split(" ");
 
-    let cachedWords = {};
+    // let cachedWords = {};
 
     let inputElement = document.querySelector("textarea");
     console.log("allWordsInOutput length ", allWordsInOutput.length);
@@ -363,7 +368,7 @@ const getTranslationWithOutEnglish = async (source, output) => {
           continue;
         }
 
-        inputElement.value = currentWord.toLowerCase();
+        inputElement.value = String(currentWord).toLowerCase();
         inputElement.dispatchEvent(new Event("input", { bubbles: true }));
         await new Promise((re, _) => setTimeout(() => re(""), 2000));
         let translateOutputofCurrentWord = "";
@@ -378,8 +383,8 @@ const getTranslationWithOutEnglish = async (source, output) => {
             translateOutputofCurrentWord = element.innerText;
 
             if (
-              translateOutputofCurrentWord.trim().toLowerCase() ==
-              currentWord.trim().toLowerCase()
+              String(translateOutputofCurrentWord).trim().toLowerCase() ==
+              String(currentWord).trim().toLowerCase()
             ) {
               let moreOptionList =
                 document.querySelectorAll("[jsname='jqKxS']");
@@ -394,8 +399,8 @@ const getTranslationWithOutEnglish = async (source, output) => {
                 ).innerText;
 
                 if (
-                  currentMoreOptionOutput.trim().toLowerCase() !=
-                  currentWord.trim().toLowerCase()
+                  String(currentMoreOptionOutput).trim().toLowerCase() !=
+                  String(currentWord).trim().toLowerCase()
                 ) {
                   translateOutputofCurrentWord = currentMoreOptionOutput;
                   break;
@@ -463,7 +468,7 @@ const returnCorrectLengthOutput = (output: string, inputType: string) => {
 
       
 
-      inputElement.value = input;
+      inputElement.value = String(input).toLowerCase();
       inputElement.dispatchEvent(new Event("input", { bubbles: true }));
       await new Promise((re, _) => setTimeout(() => re(""), 2000));
       let translationOfCurrentInput = "";
@@ -511,7 +516,7 @@ window.onload = async (event) => {
   console.log("page is fully loaded", window.location.origin);
   if (window.location.origin.includes("translate")) {
     const urlParams = new URLSearchParams(window.location.search);
-
+    cachedWords = {};
     const targetLanguage = urlParams.get("tl");
     let transLationOutput = {
       output: "",
@@ -557,7 +562,7 @@ window.onload = async (event) => {
 
     let inputElement = document.querySelector("textarea");
     let { title } = await chrome.storage.local.get(["title"]);
-    inputElement.value = title;
+    inputElement.value = String(title).toLowerCase();
     inputElement.dispatchEvent(new Event("input", { bubbles: true }));
     await new Promise((re, _) => setTimeout(() => re(""), 2000));
     let titleOutput = "";
@@ -591,7 +596,7 @@ window.onload = async (event) => {
     //Subtitle Logic
 
     let { subtitle } = await chrome.storage.local.get(["subtitle"]);
-    inputElement.value = subtitle;
+    inputElement.value = String(subtitle).toLowerCase();
     inputElement.dispatchEvent(new Event("input", { bubbles: true }));
     await new Promise((re, _) => setTimeout(() => re(""), 2000));
     let subtitleOutput = "";

@@ -7,9 +7,10 @@ chrome.runtime.onMessage.addListener(async (msg, sender, sendResponse) => {
         "reachedIndex",
       ]);
     console.log("description is ", description);
+
     if (Array.isArray(codeMapping)) {
       let reachedCode = codeMapping[reachedIndex];
-
+      description = String(description).toLowerCase();
       if (reachedCode?.code) {
         let newURL = new URL(
           `https://translate.google.co.in/?sl=en&tl=${reachedCode.code}&text=${description}&op=translate`
@@ -68,7 +69,6 @@ chrome.runtime.onMessage.addListener(async (msg, sender, sendResponse) => {
         });
       }
       await chrome.storage.local.set({ outputJson: outputJson });
-   
     } else {
       let newObject = [
         {
