@@ -250,10 +250,7 @@ chrome.runtime.onMessage.addListener(async (message) => {
             .item(i)
             .querySelector("button") as HTMLElement;
           console.log("current item si", currentItem.innerText);
-          console.log(
-            "current item si",
-            ["Catalan", "Croatian"].includes(currentItem.innerText)
-          );
+        
           if (!["French", "Danish"].includes(currentItem.innerText)) {
             continue;
           }
@@ -681,7 +678,7 @@ window.onload = async (event) => {
     transLationOutput.sourceSubTitle = subtitleSizeIndex;
     transLationOutput.subtitle = subtitleOutput;
 
-    //Promo Logic
+    //Keyword Logic
 
     let { keywords } = await chrome.storage.local.get(["keywords"]);
     inputElement.value = String(keywords).toLowerCase();
@@ -720,7 +717,7 @@ window.onload = async (event) => {
     //Promo Logic
 
     let { promo } = await chrome.storage.local.get(["promo"]);
-    inputElement.value = String(keywords).toLowerCase();
+    inputElement.value = String(promo).toLowerCase();
     inputElement.dispatchEvent(new Event("input", { bubbles: true }));
     await new Promise((re, _) => setTimeout(() => re(""), 2000));
     let promoOutput = "";
