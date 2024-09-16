@@ -198,6 +198,6 @@ let productionLan = [
 
 
 
-let x = [...testingLan]
+let x = [...productionLan]
 
 export default x;

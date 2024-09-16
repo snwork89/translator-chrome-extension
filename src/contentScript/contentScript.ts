@@ -196,7 +196,7 @@ let productionLan = [
   },
 ];
 
-let languageCodes = [...testingLan];
+let languageCodes = [...productionLan];
 
 let cachedWords = {};
 const saveTemplateAsFile = (filename, dataObjToWrite) => {
