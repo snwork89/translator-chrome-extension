@@ -45,6 +45,7 @@ chrome.runtime.onMessage.addListener(async (msg, sender, sendResponse) => {
     await chrome.storage.local.set({ descriptionSizeIndex: 0 });
     await chrome.storage.local.set({ titleSizeIndex: 0 });
     await chrome.storage.local.set({ subtitleSizeIndex: 0 });
+    await chrome.storage.local.set({ keywordsSizeIndex: 0 });
     let currentLanguage = codeMapping.find((x) => x.code == msg.targetLanguage);
     if (outputJson) {
       let currentLanguageOutput = outputJson.find(
@@ -57,6 +58,10 @@ chrome.runtime.onMessage.addListener(async (msg, sender, sendResponse) => {
         currentLanguageOutput.sourceTitle = msg.sourceTitle;
         currentLanguageOutput.subtitle = msg.subtitle;
         currentLanguageOutput.sourceSubTitle = msg.sourceSubTitle;
+        currentLanguageOutput.keywords = msg.keywords;
+        currentLanguageOutput.sourceKeywords = msg.sourceKeywords;
+        currentLanguageOutput.promo = msg.promo;
+        currentLanguageOutput.sourcePromo = msg.sourcePromo;
       } else {
         outputJson.push({
           ...currentLanguage,
@@ -66,6 +71,10 @@ chrome.runtime.onMessage.addListener(async (msg, sender, sendResponse) => {
           title: msg.title,
           subtitle: msg.subtitle,
           sourceSubTitle: msg.sourceSubTitle,
+          keywords: msg.keywords,
+          sourceKeywords: msg.sourceKeywords,
+          promo: msg.promo,
+          sourcePromo: msg.sourcePromo,
         });
       }
       await chrome.storage.local.set({ outputJson: outputJson });
@@ -79,6 +88,10 @@ chrome.runtime.onMessage.addListener(async (msg, sender, sendResponse) => {
           title: msg.title,
           subtitle: msg.subtitle,
           sourceSubTitle: msg.sourceSubTitle,
+          keywords: msg.keywords,
+          sourceKeywords: msg.sourceKeywords,
+          promo: msg.promo,
+          sourcePromo: msg.sourcePromo,
         },
       ];
       await chrome.storage.local.set({ outputJson: newObject });

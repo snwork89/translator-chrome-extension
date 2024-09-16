@@ -17,6 +17,14 @@ const Popup = () => {
   const [subtitle, setSubTitle] = useState("");
   const [mediumSizedSubTitle, setMediumSizedSubTitle] = useState("");
 
+  const [smallSizedKeywords, setSmallSizedKeywords] = useState("");
+  const [keywords, setKeywords] = useState("");
+  const [mediumSizedKeyWords, setMediumSizedKeyWords] = useState("");
+
+  const [smallSizedPromo, setSmallSizedPromo] = useState("");
+  const [promo, setPromo] = useState("");
+  const [mediumSizedPromo, setMediumSizedPromo] = useState("");
+
   const [selectedInputType, setSelectedInputType] = useState("description");
   console.log("code", codeMapping);
 
@@ -42,11 +50,21 @@ const Popup = () => {
       description: description,
     });
     await chrome.storage.local.set({
+      keywords: keywords,
+    });
+    await chrome.storage.local.set({
+      promo: promo,
+    });
+    await chrome.storage.local.set({
       allSizeDescription: [
         description,
         mediumSizedDescription,
         smallSizedDescription,
       ],
+    });
+
+    await chrome.storage.local.set({
+      allSizeKeywords: [keywords, mediumSizedKeyWords, smallSizedKeywords],
     });
     await chrome.storage.local.set({
       allSizeTitle: [title, mediumSizedTitle, smallSizedtitle],
@@ -54,11 +72,16 @@ const Popup = () => {
     await chrome.storage.local.set({
       allSizeSubTitle: [subtitle, mediumSizedSubTitle, smallSizedSubTitle],
     });
+    await chrome.storage.local.set({
+      allSizePromo: [promo, mediumSizedPromo, smallSizedPromo],
+    });
     await chrome.storage.local.set({ codeMapping: codeMapping });
     await chrome.storage.local.set({ reachedIndex: 0 });
     await chrome.storage.local.set({ descriptionSizeIndex: 0 });
     await chrome.storage.local.set({ titleSizeIndex: 0 });
     await chrome.storage.local.set({ subtitleSizeIndex: 0 });
+    await chrome.storage.local.set({ keywordsSizeIndex: 0 });
+    await chrome.storage.local.set({ promoSizeIndex: 0 });
     await chrome.storage.local.set({ inputType: selectedInputType });
     chrome.runtime.sendMessage({ type: "FROM_POPUP" });
     // openNewTab("ar");
@@ -97,7 +120,13 @@ const Popup = () => {
       var jsonObj = JSON.parse(event.target.result.toString());
       if (Array.isArray(jsonObj)) {
         ///fill apple form
-        let [titleArray, subTitleArray, descriptionArray] = jsonObj;
+        let [
+          titleArray,
+          subTitleArray,
+          descriptionArray,
+          keyWordsArray,
+          promoArray,
+        ] = jsonObj;
 
         setTitle(titleArray[0]);
         setMediumSizedTitle(titleArray[1]);
@@ -110,6 +139,14 @@ const Popup = () => {
         setDescription(descriptionArray[0]);
         setMediumSizedDescription(descriptionArray[1]);
         setSmallSizedDescription(descriptionArray[2]);
+
+        setKeywords(keyWordsArray[0]);
+        setMediumSizedKeyWords(keyWordsArray[1]);
+        setSmallSizedKeywords(keyWordsArray[2]);
+
+        setPromo(promoArray[0]);
+        setMediumSizedPromo(promoArray[1]);
+        setSmallSizedPromo(promoArray[2]);
       }
     };
 
@@ -172,19 +209,56 @@ const Popup = () => {
             setValue={setDescription}
             placeholder="Long Sized Desciption"
           />
-
           <TextAreaComponent
             type="mediumDescription"
             value={mediumSizedDescription}
             setValue={setMediumSizedDescription}
             placeholder="Medium Sized Desciption"
           />
-
           <TextAreaComponent
             type="smallDescription"
             value={smallSizedDescription}
             setValue={setSmallSizedDescription}
             placeholder="Small Sized Desciption"
+          />
+          <TextAreaComponent
+            type="keywords"
+            value={keywords}
+            setValue={setKeywords}
+            placeholder="Long Sized KeyWords"
+          />
+          <TextAreaComponent
+            type="mediumSizedKeyWords"
+            value={mediumSizedKeyWords}
+            setValue={setMediumSizedKeyWords}
+            placeholder="Medium Sized KeyWords"
+          />
+
+          <TextAreaComponent
+            type="smallSizedKeywords"
+            value={smallSizedKeywords}
+            setValue={setSmallSizedKeywords}
+            placeholder="Small Sized Keywords"
+          />
+
+          <TextAreaComponent
+            type="promo"
+            value={promo}
+            setValue={setPromo}
+            placeholder="Long Sized Promo"
+          />
+          <TextAreaComponent
+            type="mediumSizedPromo"
+            value={mediumSizedPromo}
+            setValue={setMediumSizedPromo}
+            placeholder="Medium Sized Promo"
+          />
+
+          <TextAreaComponent
+            type="smallSizedPromo"
+            value={smallSizedPromo}
+            setValue={setSmallSizedPromo}
+            placeholder="Small Sized Promo"
           />
           {/* <TextAreaComponent
             type="verySmallDescription"

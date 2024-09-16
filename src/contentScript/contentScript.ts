@@ -1,45 +1,45 @@
 let testingLan = [
   {
-    "lan": "Danish",
-    "code": "da"
+    lan: "Danish",
+    code: "da",
   },
   {
-    "lan": "French",
-    "code": "fr"
+    lan: "French",
+    code: "fr",
   },
-  {
-    "lan": "German",
-    "code": "de"
-  },
-  {
-    "lan": "Portuguese (Portugal)",
-    "code": "pt-PT"
-  },
-  {
-    "lan": "Russian",
-    "code": "ru"
-  },
-  {
-    "lan": "Greek",
-    "code": "el"
-  },
-  {
-    "lan": "Malay",
-    "code": "ms"
-  },
- 
-  {
-    "lan": "Spanish (Spain)",
-    "code": "es"
-  },
-  {
-    "lan": "Swedish",
-    "code": "sv"
-  },
-  {
-    "lan": "Thai",
-    "code": "th"
-  }
+  // {
+  //   lan: "German",
+  //   code: "de",
+  // },
+  // {
+  //   lan: "Portuguese (Portugal)",
+  //   code: "pt-PT",
+  // },
+  // {
+  //   lan: "Russian",
+  //   code: "ru",
+  // },
+  // {
+  //   lan: "Greek",
+  //   code: "el",
+  // },
+  // {
+  //   lan: "Malay",
+  //   code: "ms",
+  // },
+
+  // {
+  //   lan: "Spanish (Spain)",
+  //   code: "es",
+  // },
+  // {
+  //   lan: "Swedish",
+  //   code: "sv",
+  // },
+  // {
+  //   lan: "Thai",
+  //   code: "th",
+  // },
 ];
 let productionLan = [
   {
@@ -196,8 +196,7 @@ let productionLan = [
   },
 ];
 
-let languageCodes = [...productionLan];
-
+let languageCodes = [...testingLan];
 
 let cachedWords = {};
 const saveTemplateAsFile = (filename, dataObjToWrite) => {
@@ -255,7 +254,7 @@ chrome.runtime.onMessage.addListener(async (message) => {
             "current item si",
             ["Catalan", "Croatian"].includes(currentItem.innerText)
           );
-          if (!["Catalan", "Croatian"].includes(currentItem.innerText)) {
+          if (!["French", "Danish"].includes(currentItem.innerText)) {
             continue;
           }
           currentItem.click();
@@ -272,16 +271,24 @@ chrome.runtime.onMessage.addListener(async (message) => {
             ? outputJson.find((x) => x.code == currentCode.code)
             : null;
           if (currentDescription) {
-            let { title, subtitle, output } = currentDescription;
+            let { title, subtitle, output, promo, keywords } =
+              currentDescription;
 
             let descriptionElement: any =
               document.querySelector("[name=description]");
+            let promoTextElement:any = document.querySelector(
+              "[name=promotionalText]"
+            );
+
+            let keywordElement:any= document.querySelector("#keywords");
             let titleElement: any = document.getElementById("name");
             let subtitleElement: any = document.getElementById("subtitle");
             console.log(
               "description element ",
               descriptionElement,
-              currentDescription
+              currentDescription,
+              title,
+              subtitle
             );
             if (descriptionElement && output) {
               descriptionElement.textContent = output;
@@ -299,6 +306,22 @@ chrome.runtime.onMessage.addListener(async (message) => {
               subtitleElement.value = subtitle;
 
               subtitleElement.dispatchEvent(
+                new Event("input", { bubbles: true })
+              );
+            }
+
+            if(promoTextElement && promo){
+              promoTextElement.textContent = promo;
+
+              promoTextElement.dispatchEvent(
+                new Event("input", { bubbles: true })
+              );
+            }
+
+            if(keywordElement && keywords){
+              keywordElement.value = keywords;
+
+              keywordElement.dispatchEvent(
                 new Event("input", { bubbles: true })
               );
             }
@@ -337,7 +360,6 @@ const getTranslationWithOutEnglish = async (source, output) => {
   console.log("current source inside geWithoutEnglush", source);
   console.log("current output inside geWithoutEnglush", output);
   let promise = new Promise(async (resolve, reject) => {
-
     resolve(output);
     return;
     let inputString = String(source);
@@ -466,7 +488,29 @@ const returnCorrectLengthOutput = (output: string, inputType: string) => {
         });
       }
 
-      
+      if (inputType == "keywords") {
+        let { keywordsSizeIndex, allSizeKeywords } =
+          await chrome.storage.local.get([
+            "keywordsSizeIndex",
+            "allSizeKeywords",
+          ]);
+        keywordsSizeIndex = keywordsSizeIndex + 1;
+        input = allSizeKeywords[keywordsSizeIndex];
+        await chrome.storage.local.set({
+          keywordsSizeIndex: keywordsSizeIndex,
+        });
+      }
+      if (inputType == "promo") {
+        let { promoSizeIndex, allSizePromo } = await chrome.storage.local.get([
+          "promoSizeIndex",
+          "allSizePromo",
+        ]);
+        promoSizeIndex = promoSizeIndex + 1;
+        input = allSizePromo[promoSizeIndex];
+        await chrome.storage.local.set({
+          promoSizeIndex: promoSizeIndex,
+        });
+      }
 
       inputElement.value = String(input).toLowerCase();
       inputElement.dispatchEvent(new Event("input", { bubbles: true }));
@@ -491,8 +535,8 @@ const returnCorrectLengthOutput = (output: string, inputType: string) => {
         )) as string;
       }
 
-      if(currentOutput.length>MAX_CHARACTER_COUNT){
-        saveTemplateAsFile("overflow.json",{output:currentOutput})
+      if (currentOutput.length > MAX_CHARACTER_COUNT) {
+        saveTemplateAsFile("overflow.json", { output: currentOutput });
       }
     }
 
@@ -507,6 +551,10 @@ const returnMaxCharacter = (inputType) => {
     return 30;
   } else if (inputType == "description") {
     return 4000;
+  } else if (inputType == "keywords") {
+    return 100;
+  } else if (inputType == "promo") {
+    return 170;
   } else {
     return 4000;
   }
@@ -525,6 +573,10 @@ window.onload = async (event) => {
       title: "",
       subtitle: "",
       sourceSubTitle: 0,
+      keywords: "",
+      sourceKeywords: 0,
+      promo: "",
+      sourcePromo: 0,
     };
 
     //Description Logic
@@ -628,6 +680,76 @@ window.onload = async (event) => {
     ]);
     transLationOutput.sourceSubTitle = subtitleSizeIndex;
     transLationOutput.subtitle = subtitleOutput;
+
+    //Promo Logic
+
+    let { keywords } = await chrome.storage.local.get(["keywords"]);
+    inputElement.value = String(keywords).toLowerCase();
+    inputElement.dispatchEvent(new Event("input", { bubbles: true }));
+    await new Promise((re, _) => setTimeout(() => re(""), 2000));
+    let keywordsOutput = "";
+
+    while (keywordsOutput == "") {
+      await new Promise((rs, rj) => setTimeout(() => rs(""), 2000));
+      let element = document.querySelector("[jsname='jqKxS']") as HTMLElement;
+      console.log("finding ", element);
+      if (element) {
+        keywordsOutput = element.innerText;
+      }
+    }
+
+    if (targetLanguage != "en") {
+      keywordsOutput = (await getTranslationWithOutEnglish(
+        // urlParams.get("text"),
+        keywords,
+        keywordsOutput
+      )) as string;
+    }
+
+    keywordsOutput = (await returnCorrectLengthOutput(
+      keywordsOutput,
+      "keywords"
+    )) as string;
+
+    let { keywordsSizeIndex } = await chrome.storage.local.get([
+      "keywordsSizeIndex",
+    ]);
+    transLationOutput.sourceKeywords = keywordsSizeIndex;
+    transLationOutput.keywords = keywordsOutput;
+
+    //Promo Logic
+
+    let { promo } = await chrome.storage.local.get(["promo"]);
+    inputElement.value = String(keywords).toLowerCase();
+    inputElement.dispatchEvent(new Event("input", { bubbles: true }));
+    await new Promise((re, _) => setTimeout(() => re(""), 2000));
+    let promoOutput = "";
+
+    while (promoOutput == "") {
+      await new Promise((rs, rj) => setTimeout(() => rs(""), 2000));
+      let element = document.querySelector("[jsname='jqKxS']") as HTMLElement;
+      console.log("finding ", element);
+      if (element) {
+        promoOutput = element.innerText;
+      }
+    }
+
+    if (targetLanguage != "en") {
+      promoOutput = (await getTranslationWithOutEnglish(
+        // urlParams.get("text"),
+        promo,
+        promoOutput
+      )) as string;
+    }
+
+    promoOutput = (await returnCorrectLengthOutput(
+      promoOutput,
+      "promo"
+    )) as string;
+
+    let { promoSizeIndex } = await chrome.storage.local.get(["promoSizeIndex"]);
+    transLationOutput.sourcePromo = promoSizeIndex;
+    transLationOutput.promo = promoOutput;
 
     // if (translateOutput.length > MAX_CHARACTER_COUNT) {
     //   let { descriptionSizeIndex, allSizeDescription } =

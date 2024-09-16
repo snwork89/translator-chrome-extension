@@ -7,39 +7,39 @@ let testingLan = [
     "lan": "French",
     "code": "fr"
   },
-  {
-    "lan": "German",
-    "code": "de"
-  },
-  {
-    "lan": "Portuguese (Portugal)",
-    "code": "pt-PT"
-  },
-  {
-    "lan": "Russian",
-    "code": "ru"
-  },
-  {
-    "lan": "Greek",
-    "code": "el"
-  },
-  {
-    "lan": "Malay",
-    "code": "ms"
-  },
+  // {
+  //   "lan": "German",
+  //   "code": "de"
+  // },
+  // {
+  //   "lan": "Portuguese (Portugal)",
+  //   "code": "pt-PT"
+  // },
+  // {
+  //   "lan": "Russian",
+  //   "code": "ru"
+  // },
+  // {
+  //   "lan": "Greek",
+  //   "code": "el"
+  // },
+  // {
+  //   "lan": "Malay",
+  //   "code": "ms"
+  // },
  
-  {
-    "lan": "Spanish (Spain)",
-    "code": "es"
-  },
-  {
-    "lan": "Swedish",
-    "code": "sv"
-  },
-  {
-    "lan": "Thai",
-    "code": "th"
-  }
+  // {
+  //   "lan": "Spanish (Spain)",
+  //   "code": "es"
+  // },
+  // {
+  //   "lan": "Swedish",
+  //   "code": "sv"
+  // },
+  // {
+  //   "lan": "Thai",
+  //   "code": "th"
+  // }
 ];
 let productionLan = [
   {
@@ -198,6 +198,6 @@ let productionLan = [
 
 
 
-let x = [...productionLan]
+let x = [...testingLan]
 
 export default x;
