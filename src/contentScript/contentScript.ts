@@ -532,9 +532,9 @@ const returnCorrectLengthOutput = (output: string, inputType: string) => {
         )) as string;
       }
 
-      if (currentOutput.length > MAX_CHARACTER_COUNT) {
-        saveTemplateAsFile("overflow.json", { output: currentOutput });
-      }
+      // if (currentOutput.length > MAX_CHARACTER_COUNT) {
+      //   saveTemplateAsFile("overflow.json", { output: currentOutput });
+      // }
     }
 
     resolve(currentOutput);
