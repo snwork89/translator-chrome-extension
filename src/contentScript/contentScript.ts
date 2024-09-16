@@ -251,7 +251,7 @@ chrome.runtime.onMessage.addListener(async (message) => {
             .querySelector("button") as HTMLElement;
           console.log("current item si", currentItem.innerText);
         
-          if (!["French", "Danish"].includes(currentItem.innerText)) {
+          if (!["French","Arabic"].includes(currentItem.innerText)) {
             continue;
           }
           currentItem.click();
@@ -294,11 +294,19 @@ chrome.runtime.onMessage.addListener(async (message) => {
                 new Event("input", { bubbles: true })
               );
             }
+            await new Promise((resolve, reject) =>
+              setTimeout(() => resolve(""), 100)
+            );
+  
             if (titleElement && title) {
               titleElement.value = title;
 
               titleElement.dispatchEvent(new Event("input", { bubbles: true }));
             }
+            await new Promise((resolve, reject) =>
+              setTimeout(() => resolve(""), 100)
+            );
+  
             if (subtitleElement && subtitle) {
               subtitleElement.value = subtitle;
 
@@ -306,6 +314,10 @@ chrome.runtime.onMessage.addListener(async (message) => {
                 new Event("input", { bubbles: true })
               );
             }
+            await new Promise((resolve, reject) =>
+              setTimeout(() => resolve(""), 100)
+            );
+  
 
             if(promoTextElement && promo){
               promoTextElement.textContent = promo;
@@ -314,7 +326,10 @@ chrome.runtime.onMessage.addListener(async (message) => {
                 new Event("input", { bubbles: true })
               );
             }
-
+            await new Promise((resolve, reject) =>
+              setTimeout(() => resolve(""), 100)
+            );
+  
             if(keywordElement && keywords){
               keywordElement.value = keywords;
 
@@ -322,6 +337,8 @@ chrome.runtime.onMessage.addListener(async (message) => {
                 new Event("input", { bubbles: true })
               );
             }
+       
+  
           }
           await new Promise((resolve, reject) =>
             setTimeout(() => resolve(""), 2000)
