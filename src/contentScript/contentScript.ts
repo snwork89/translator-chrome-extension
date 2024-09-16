@@ -277,16 +277,32 @@ chrome.runtime.onMessage.addListener(async (message) => {
               "[name=promotionalText]"
             );
 
-            let keywordElement:any= document.querySelector("#keywords");
+            let keywordElement:any= document.getElementById("keywords");
             let titleElement: any = document.getElementById("name");
             let subtitleElement: any = document.getElementById("subtitle");
             console.log(
               "description element ",
               descriptionElement,
               currentDescription,
+              keywordElement,
               title,
               subtitle
             );
+
+
+            if(keywordElement && keywords){
+              keywordElement.value = keywords;
+              await new Promise((resolve, reject) =>
+                setTimeout(() => resolve(""), 100)
+              );
+              keywordElement.dispatchEvent(
+                new Event("input", { bubbles: true })
+              );
+            }
+            await new Promise((resolve, reject) =>
+              setTimeout(() => resolve(""), 100)
+            );
+
             if (descriptionElement && output) {
               descriptionElement.textContent = output;
 
@@ -318,7 +334,6 @@ chrome.runtime.onMessage.addListener(async (message) => {
               setTimeout(() => resolve(""), 100)
             );
   
-
             if(promoTextElement && promo){
               promoTextElement.textContent = promo;
 
@@ -330,13 +345,6 @@ chrome.runtime.onMessage.addListener(async (message) => {
               setTimeout(() => resolve(""), 100)
             );
   
-            if(keywordElement && keywords){
-              keywordElement.value = keywords;
-
-              keywordElement.dispatchEvent(
-                new Event("input", { bubbles: true })
-              );
-            }
        
   
           }
