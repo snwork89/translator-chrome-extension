@@ -46,6 +46,7 @@ chrome.runtime.onMessage.addListener(async (msg, sender, sendResponse) => {
     await chrome.storage.local.set({ titleSizeIndex: 0 });
     await chrome.storage.local.set({ subtitleSizeIndex: 0 });
     await chrome.storage.local.set({ keywordsSizeIndex: 0 });
+    await chrome.storage.local.set({ promoSizeIndex: 0 });
     let currentLanguage = codeMapping.find((x) => x.code == msg.targetLanguage);
     if (outputJson) {
       let currentLanguageOutput = outputJson.find(

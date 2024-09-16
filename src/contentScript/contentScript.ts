@@ -251,9 +251,9 @@ chrome.runtime.onMessage.addListener(async (message) => {
             .querySelector("button") as HTMLElement;
           console.log("current item si", currentItem.innerText);
         
-          if (!["French","Arabic"].includes(currentItem.innerText)) {
-            continue;
-          }
+          // if (!["French","Arabic"].includes(currentItem.innerText)) {
+          //   continue;
+          // }
           currentItem.click();
           await new Promise((resolve, reject) =>
             setTimeout(() => resolve(""), 2000)
